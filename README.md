@@ -1,1 +1,0 @@
-#pIndividuais-VemSerTech-AdaTech
