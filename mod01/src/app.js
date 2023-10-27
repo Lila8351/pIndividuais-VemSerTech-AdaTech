@@ -92,7 +92,7 @@ const rl = readline.createInterface({
 function addInfoCliente(n){
   const nome = arrayClientes[n].nome;
 
-  rl.question("Digite a opção do que deseja fazer: 1-carro de entrada  2-adicionar restricao 3-opcao consorcio", (opcao) => {
+  rl.question("Digite a opção do que deseja fazer: 1-carro de entrada  2-adicionar restricao 3-opcao consorcio 4-enviar email para cliente", (opcao) => {
     switch (opcao) {
       case 1:
       const carroEntrada = prompt( nome +  ' usará carro como entrada? 1-sim 2-nao');
@@ -106,6 +106,9 @@ function addInfoCliente(n){
       const consorcio = prompt( nome + ' tem interesse em adquirir consorcio? 1-sim 2-nao');
       arrayClientes[n].consorcio = consorcio;
         break;
+      case 4:
+      const n = prompt('Digite o numero do cliente que deseja buscar: ');
+      construirEmail();
       default:
         console.log("Não entendi te entendi. Digita um número de 1 a 3 para dizer o que você quer fazer.");
     }
