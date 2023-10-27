@@ -89,25 +89,24 @@ const rl = readline.createInterface({
     //arrayClientes.push(clienteNovo);
 }
 
-function addInfoCliente(n){
-  const nome = arrayClientes[n].nome;
-
+function interacaoCliente(){
+  const n = prompt('Digite o numero do cliente que deseja buscar: ');
+  
   rl.question("Digite a opção do que deseja fazer: 1-carro de entrada  2-adicionar restricao 3-opcao consorcio 4-enviar email para cliente", (opcao) => {
     switch (opcao) {
       case 1:
-      const carroEntrada = prompt( nome +  ' usará carro como entrada? 1-sim 2-nao');
+      const carroEntrada = prompt('Usará carro como entrada? 1-sim 2-nao');
       arrayClientes[n].carroEntrada = carroEntrada;
         break;
       case 2:
-      const temRestricao = prompt( nome + ' possui restricao de credito? 1-sim 2-nao');
+      const temRestricao = prompt('Possui restricao de credito? 1-sim 2-nao');
       arrayClientes[n].restricao = temRestricao;
         break;
       case 3:
-      const consorcio = prompt( nome + ' tem interesse em adquirir consorcio? 1-sim 2-nao');
+      const consorcio = prompt('Tem interesse em adquirir consorcio? 1-sim 2-nao');
       arrayClientes[n].consorcio = consorcio;
         break;
       case 4:
-      const n = prompt('Digite o numero do cliente que deseja buscar: ');
       construirEmail();
       default:
         console.log("Não entendi te entendi. Digita um número de 1 a 3 para dizer o que você quer fazer.");
@@ -117,4 +116,4 @@ function addInfoCliente(n){
   });
 }
 
-module.exports = { enviarEmail, incluirCliente, addInfoCliente, verificarData, selecionaCliente }
+module.exports = { enviarEmail, incluirCliente, interacaoCliente, verificarData, selecionaCliente }
