@@ -58,16 +58,6 @@ const rl = readline.createInterface({
     //arrayClientes.push(clienteNovo);
 }
 
-const verificarData = () => {
-  const hoje = new Date();
-  const diaSemana = hoje.getDay();
-  return diaSemana;
-}
-
-const construirOfertas = () => {
-  
-}
-
 function addInfoCliente(n){
   const nome = arrayClientes[n].nome;
 
@@ -93,4 +83,33 @@ function addInfoCliente(n){
   });
 }
 
-module.exports = { enviarEmail, incluirCliente, addInfoCliente, verificarData }
+function selecionaCliente(n) {
+  const cliente = arrayClientes[n];
+  return {
+    nome: cliente.nome,
+    email: cliente.email,
+    propaganda: cliente.recebePropaganda,
+    restricao: cliente.restricao,
+    consorcio: cliente.consorcio
+  };
+}
+
+// const informacoesCliente = selecionaCliente(0); // Exemplo de uso com o primeiro cliente
+// console.log(informacoesCliente.nome);
+// console.log(informacoesCliente.propaganda);
+
+
+const verificarData = () => {
+  const hoje = new Date();
+  const diaSemana = hoje.getDay();
+  return diaSemana;
+}
+
+function enviarEmail (n){
+  
+  if (selecionaCliente(n).propaganda === "1" && verificarData() === "1"){
+    //construir o email
+  }
+}
+
+module.exports = { enviarEmail, incluirCliente, addInfoCliente, verificarData, selecionaCliente }
