@@ -64,7 +64,9 @@ const verificarData = () => {
   return diaSemana;
 }
 
-const construirOfertas = () => {}
+const construirOfertas = () => {
+  
+}
 
 function addInfoCliente(n){
   const nome = arrayClientes[n].nome;
@@ -91,4 +93,4 @@ function addInfoCliente(n){
   });
 }
 
-module.exports = { enviarEmail, incluirCliente }
+module.exports = { enviarEmail, incluirCliente, addInfoCliente, verificarData }
