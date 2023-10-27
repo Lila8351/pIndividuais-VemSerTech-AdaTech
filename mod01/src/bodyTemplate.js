@@ -1,8 +1,8 @@
 import { descontoKit, ofertaTrocaUsado } from './ofertas.js';
-import { arrayClientes } from './clientes.js'
+import clientes from './clientes.js'
 
-export const body = (fulanin, descontoKit, ofertaTrocaUsado) =>`
-Oi, ${fulanin}! 
+export const body = ( clientes, descontoKit, ofertaTrocaUsado) =>`
+Oi, ${clientes.nome}! 
 Lembra que voce queria trocar seu carro ainda este ano?
 Tenho uma novidade que pode tornar isso possível!
 ${ofertaTrocaUsado}
