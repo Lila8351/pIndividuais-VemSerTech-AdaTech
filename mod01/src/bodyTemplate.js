@@ -1,4 +1,5 @@
 import { descontoKit, ofertaTrocaUsado } from './ofertas.js';
+import { arrayClientes } from './clientes.js'
 
 export const body = (fulanin, descontoKit, ofertaTrocaUsado) =>`
 Oi, ${fulanin}! 

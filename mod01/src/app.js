@@ -1,5 +1,5 @@
 // Não alterar este código, a menos que haja uma boa justificativa.
-import clientes from './clientes.js';
+import arrayClientes from './clientes.js';
 import { body } from './bodyTemplate.js'
 
 
