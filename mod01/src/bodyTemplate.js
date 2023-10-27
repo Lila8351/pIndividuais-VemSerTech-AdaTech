@@ -1,7 +1,7 @@
 import { descontoKit, ofertaTrocaUsado } from './ofertas.js';
 import arrayClientes from './clientes.js'
 
-export const body = () =>`
+export const body = (clientes) =>`
 Oi, ${clientes.nome}! 
 Lembra que voce queria trocar seu carro ainda este ano?
 Tenho uma novidade que pode tornar isso possível!

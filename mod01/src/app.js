@@ -2,44 +2,75 @@
 import arrayClientes from './clientes.js';
 import { body } from './bodyTemplate.js'
 
+function selecionaCliente(n) {
+  const cliente = arrayClientes[n];
+  return {
+    nome: cliente.nome,
+    email: cliente.email,
+    propaganda: cliente.recebePropaganda,
+    restricao: cliente.restricao,
+    consorcio: cliente.consorcio
+  };
+}
+
+function verificarData(){
+  const hoje = new Date();
+  const diaSemana = hoje.getDay();
+  return diaSemana;
+}
+const segundaFeira = verificarData();
+const aceitaPropaganda = selecionaCliente(n).propaganda;
+
+function enviarEmail (n){
+  
+  `De: news@carstore.com
+   Para: ${selecionaCliente(n).email}
+   Assunto: Oferta imperdível!
+   ${body(selecionaCliente(n))}
+   CarStore - Aqui você encontra o seu carro novo
+   `
+}
+
+
+// ARQUIVO DAS FUNCOES
+
+// const enviarEmail = (addressee, body) => {
+  function construirEmail(){
+    try {
+      if (selecionaCliente(n).email === null){  
+        throw new Error("Um destinatário precisa ser fornecido ao enviar um e-mail.");
+      }
+      if (segundaFeira === "1" && aceitaPropaganda === "1"){
+        enviarEmail(n);
+      }
+              
+      //CODIGO PRA MANDAR O EMAIL
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+        
+//           console.log(
+//             `
+//               De: news@carstore.com
+//               Para: ${addressee}
+//               Assunto: ${subject}
+              
+//               ${body}
+              
+//               CarStore - Aqui você encontra o seu carro novo
+//             `
+//           );
+        
+//           return { status: "Sucess", message: "E-mail enviado com sucesso!" };
+//         ;
+// //    
+
 const readline = require('readline');
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
-// ARQUIVO DAS FUNCOES
-
-// const enviarEmail = (addressee, body) => {
-//     try {
-//         if (!addressee) {
-//             throw new Error("Um destinatário precisa ser fornecido ao enviar um e-mail.");
-//           }
-        
-//         if (!body) {
-//            throw new Error("O corpo da mensagem precisa ser fornecido ao enviar um e-mail.");  
-//         }
-//         // comandos para enviar o email
-
-//     } catch (error) {
-//         console.error(error.message);
-//     }
-    
-//     }
-  
-  //   console.log(
-  //     `
-  //       De: news@carstore.com
-  //       Para: ${addressee}
-  //       Assunto: ${subject}
-        
-  //       ${body}
-        
-  //       CarStore - Aqui você encontra o seu carro novo
-  //     `
-  //   );
-  
-  //   return { status: "Sucess", message: "E-mail enviado com sucesso!" };
-  // ;
 
   function incluirCliente(){
     const clienteNovo = {};
@@ -81,35 +112,6 @@ function addInfoCliente(n){
   
     rI.close()
   });
-}
-
-function selecionaCliente(n) {
-  const cliente = arrayClientes[n];
-  return {
-    nome: cliente.nome,
-    email: cliente.email,
-    propaganda: cliente.recebePropaganda,
-    restricao: cliente.restricao,
-    consorcio: cliente.consorcio
-  };
-}
-
-// const informacoesCliente = selecionaCliente(0); // Exemplo de uso com o primeiro cliente
-// console.log(informacoesCliente.nome);
-// console.log(informacoesCliente.propaganda);
-
-
-const verificarData = () => {
-  const hoje = new Date();
-  const diaSemana = hoje.getDay();
-  return diaSemana;
-}
-
-function enviarEmail (n){
-  
-  if (selecionaCliente(n).propaganda === "1" && verificarData() === "1"){
-    //construir o email
-  }
 }
 
 module.exports = { enviarEmail, incluirCliente, addInfoCliente, verificarData, selecionaCliente }
